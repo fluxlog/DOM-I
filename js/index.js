@@ -51,12 +51,15 @@ const title = document.querySelector('h1');
 title.textContent = siteContent["cta"]["h1"];
 
 const linksbar = document.querySelectorAll('a');
-linksbar[0].textContent = siteContent["nav"]["nav-item-1"];
-linksbar[1].textContent = siteContent["nav"]["nav-item-2"];
-linksbar[2].textContent = siteContent["nav"]["nav-item-3"];
-linksbar[3].textContent = siteContent["nav"]["nav-item-4"];
-linksbar[4].textContent = siteContent["nav"]["nav-item-5"];
-linksbar[5].textContent = siteContent["nav"]["nav-item-6"];
+linksbar.forEach((item, index) => item.textContent = siteContent["nav"][`nav-item-${index += 1}`]);
+linksbar.forEach((item) => item.style.color = "green");
+
+const nav = document.querySelector('nav');
+const firstNav = document.createElement('a')
+const lastNav = document.createElement('a')
+nav.appendChild(lastNav);
+nav.prepend(firstNav);
+
 
 const button = document.querySelector(".cta-text button");
 button.textContent = siteContent["cta"]["button"];
@@ -85,3 +88,5 @@ contactP[2].innerText = siteContent['contact']['email'];
 
 const footer = document.querySelector('footer');
 footer.textContent = siteContent['footer']['copyright'];
+
+
